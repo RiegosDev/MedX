@@ -4,7 +4,7 @@
 
 -- Tabela de operadoras de convênios
 CREATE TABLE IF NOT EXISTS insurance_companies (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   name VARCHAR(255) NOT NULL,
   short_name VARCHAR(100),
   logo_url TEXT,
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS insurance_companies (
 
 -- Tabela de planos oferecidos por cada operadora
 CREATE TABLE IF NOT EXISTS insurance_plans (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   insurance_company_id UUID NOT NULL REFERENCES insurance_companies(id) ON DELETE CASCADE,
   name VARCHAR(255) NOT NULL,
   plan_type VARCHAR(100), -- Tipo: Básico, Intermediário, Premium, etc
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS insurance_plans (
 
 -- Tabela de convênios aceitos pela clínica
 CREATE TABLE IF NOT EXISTS clinic_accepted_insurances (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   insurance_plan_id UUID NOT NULL REFERENCES insurance_plans(id) ON DELETE CASCADE,
   is_active BOOLEAN DEFAULT true,
   notes TEXT, -- Observações sobre o convênio (ex: carências, restrições)

@@ -6,7 +6,7 @@
 -- IMPORTANTE: Substitua 'SUA_API_KEY_AQUI' pela sua API key real do Google AI Studio
 -- Para obter sua API key, acesse: https://makersuite.google.com/app/apikey
 INSERT INTO public.system_settings (key, value, description, is_active) VALUES
-    ('gemini_api_key', 'SUA_API_KEY_AQUI', 'API key do Google Gemini Flash para análise de exames laboratoriais e imagens médicas', true)
+    ('gemini_api_key', 'AIzaSyD7lertekwhS-eAuAneoJZcivreeVYnGso', 'API key do Google Gemini Flash para análise de exames laboratoriais e imagens médicas', true)
 ON CONFLICT (key) DO UPDATE SET
     description = EXCLUDED.description,
     updated_at = NOW();
@@ -22,6 +22,6 @@ ON CONFLICT (key) DO UPDATE SET
 -- 5. Execute o comando SQL abaixo substituindo pela sua chave:
 --
 -- UPDATE public.system_settings 
--- SET value = 'sua-api-key-real-aqui' 
+-- SET value = 'AIzaSyD7lertekwhS-eAuAneoJZcivreeVYnGso' 
 -- WHERE key = 'gemini_api_key';
 
