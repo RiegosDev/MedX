@@ -9,6 +9,7 @@ import { AlertCircle } from 'lucide-react';
 import { supabase } from '@/lib/supabaseClient';
 import { MagicBentoCard } from '@/components/bento/MagicBento';
 import Particles from '@/components/backgrounds/Particles';
+import logo from '@/assets/medx-logo.png';
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState('');
@@ -48,7 +49,7 @@ export default function ForgotPassword() {
       </div>
       <div className="w-full max-w-md space-y-8 relative z-10">
         <div className="flex flex-col items-center gap-4">
-          <img src="/medx-logo.png" alt="MedX" className="w-32 h-32 object-contain drop-shadow-lg" />
+          <img src={logo} alt="MedX" className="w-32 h-32 object-contain drop-shadow-lg" />
           <div className="text-center">
             <p className="text-muted-foreground mt-1">Esqueci minha senha</p>
           </div>

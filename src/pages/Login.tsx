@@ -10,6 +10,7 @@ import { AlertCircle } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import LightRays from '@/components/backgrounds/LightRays';
 import Particles from '@/components/backgrounds/Particles';
+import logo from '@/assets/medx-logo.png';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -63,7 +64,7 @@ export default function Login() {
       <div className="w-full max-w-md space-y-8 relative z-10">
         {/* Logo */}
         <div className="flex flex-col items-center gap-4">
-          <img src="/medx-logo.png" alt="MedX" className="w-48 h-48 object-contain drop-shadow-lg" />
+          <img src={logo} alt="MedX" className="w-48 h-48 object-contain drop-shadow-lg" />
           <div className="text-center">
             <p className="text-muted-foreground mt-1">Sistema de Gestão Médica</p>
           </div>
