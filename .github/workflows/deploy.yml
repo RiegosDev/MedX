@@ -1,0 +1,53 @@
+name: Deploy Vite SPA to GitHub Pages
+
+on:
+  # Dispara o workflow toda vez que houver um push na branch main
+  push:
+    branches: ["main"]
+  # Permite rodar o workflow manualmente pela aba Actions do GitHub
+  workflow_dispatch:
+
+# Configura as permissões necessárias para o GITHUB_TOKEN
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Permite apenas um deploy simultâneo, pulando filas se houver commits rápidos
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Setup do Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20 # Mantendo uma versão LTS sólida
+          cache: 'npm'
+
+      - name: Instalar dependências
+        run: npm ci # 'ci' é mais limpo e rápido que 'install' para CI/CD
+
+      - name: Build do projeto Vite
+        run: npm run build
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload dos artefatos (pasta dist)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist' # O Vite joga o build compilado aqui por padrão
+
+      - name: Deploy para o GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
