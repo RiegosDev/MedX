@@ -63,7 +63,7 @@ export default function Login() {
       <div className="w-full max-w-md space-y-8 relative z-10">
         {/* Logo */}
         <div className="flex flex-col items-center gap-4">
-          <img src="/medx-logo.png" alt="MedX" className="w-48 h-48 object-contain drop-shadow-lg" />
+          <img src="medx-logo.png" alt="MedX" className="w-48 h-48 object-contain drop-shadow-lg" />
           <div className="text-center">
             <p className="text-muted-foreground mt-1">Sistema de Gestão Médica</p>
           </div>
