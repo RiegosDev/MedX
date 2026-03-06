@@ -59,7 +59,7 @@ export default function Register() {
       </div>
       <div className="w-full max-w-md space-y-8 relative z-10">
         <div className="flex flex-col items-center gap-4">
-          <img src="medx-logo.png" alt="MedX" className="w-32 h-32 object-contain drop-shadow-lg" />
+          <img src="/medx-logo.png" alt="MedX" className="w-32 h-32 object-contain drop-shadow-lg" />
           <div className="text-center">
             <p className="text-muted-foreground mt-1">Criar conta</p>
           </div>
