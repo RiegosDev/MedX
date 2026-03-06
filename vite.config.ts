@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
   return {
     // Base URL - use '/' para domínio raiz ou subdomínio
     // Se estiver em subpasta, mude para '/subpasta/'
-    base: '/',
+    base: '/MedX/',
     
     server: {
       host: "::",
@@ -38,7 +38,6 @@ export default defineConfig(({ mode }) => {
     },
     
     plugins: [react(), enableTagger && componentTagger()].filter(Boolean),
-    
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
